@@ -9,7 +9,9 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  ImageBackground,
+  Image
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -22,18 +24,13 @@ const instructions = Platform.select({
 
 export default class App extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+         return (
+           <ImageBackground
+             style={{width: 500, height: 500}}
+             source={{uri: './App/img/background.jpg'}}
+           >
+             <Text>React</Text>
+           </ImageBackground>
     );
   }
 }
