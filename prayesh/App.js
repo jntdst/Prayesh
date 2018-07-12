@@ -13,6 +13,10 @@ import {
   ImageBackground,
   Image
 } from 'react-native';
+import Logo from './App/components/Logo/Logo'
+import SignUpBody from './App/components/SignUpBody/SignUpBody'
+import SignUpLogin from './App/components/SignUpLoginTab/SignUpLoginTab'
+import SignUpLoginTab from './App/components/SignUpLoginTab/SignUpLoginTab';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -23,14 +27,14 @@ const instructions = Platform.select({
 
 
 export default class App extends Component {
+  
+  
+
   render() {
          return (
-           <ImageBackground
-             style={{width: 500, height: 500}}
-             source={{uri: './App/img/background.jpg'}}
-           >
-             <Text>React</Text>
-           </ImageBackground>
+        <View>
+          <SignUpBody/>
+        </View>
     );
   }
 }
