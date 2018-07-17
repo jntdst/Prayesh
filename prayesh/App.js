@@ -18,7 +18,7 @@ import Logo from './App/components/Logo/Logo'
 import SignUpBody from './App/components/SignUpBody/SignUpBody'
 import SignUpLoginTab from './App/components/SignUpLoginTab/SignUpLoginTab'
 import LoginBody from './App/components/LoginBody/LoginBody';
-import { createStackNavigator, StackNavigator } from 'react-navigation'
+import { createStackNavigator, StackNavigator, TabNavigator } from 'react-navigation'
 import { YellowBox } from 'react-native'
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated']);
 console.disableYellowBox = true;
@@ -44,28 +44,41 @@ const RootStack = createStackNavigator(
   }
 );
 */
+export const Tabs = TabNavigator({
+  
+      LoginTab: {screen: LoginBody},
+      SignUpTab: {screen: SignUpBody}
+
+  },
+  {
+    order: ['LoginTab', 'SignUpTab'],
+    animation:true,
+  }
+)
 const RootStack = StackNavigator({
-  Screen1 : {
-    screen: Screen1,
+  LoginPage : {
+    screen: LoginBody,
     navigationOptions: {
       header: null,
     }
   },
-  Home : {
-    screen: HomeScreen,
-    navigationOptions: ({navigation}) => ({
-      title: 'Home',
-      headerStyle: styles.headerStyle,
-      headerTitle: <Text>Home</Text>,
-      headerLeft : null,
-      headerRight: null,
-    })
+  SignUpPage : {
+    screen: SignUpBody,
+    navigationOptions: {
+      header: null,
+    }
+    
   }, 
-}, {headerMode: 'screen'})
+}, {initialRouteName: 'SignUpPage',})
+
 export default class App extends React.Component {
   
   render() {
-    return <RootStack/>;
+    return(
+      <Tabs style={{backgroundColor:'#ababab'}}/>
+     
+
+  );
   }
 }
 /*export default class App extends Component {

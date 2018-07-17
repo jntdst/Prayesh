@@ -16,15 +16,18 @@ import {
 import { TabNavigator } from 'react-navigation'
 import { createStackNavigator,StackNavigator, withNavigation} from 'react-navigation'
 import LoginBody from '../LoginBody/LoginBody'
-import SignUpBofy from '../SignUpBody/SignUpBody'
+import SignUpBody from '../SignUpBody/SignUpBody'
 
 st = [[0,1],[1,0]];
 BackGroundcolors= ['#000000', '#ababab'];
 textColors= ['#000000','#ffffff'];
+
+
 class SignUpLoginTab extends Component{
   constructor(props) {
     super(props);
   }
+  
   clickOnSignUp = ()=>{
     console.log("salam");
     this.props.navigation.navigate('SignUpPage');
