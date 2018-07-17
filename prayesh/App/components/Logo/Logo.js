@@ -27,12 +27,12 @@ export default class Logo extends Component{
   render() {
     return (
         <View 
-           style={{width:Dimensions.get('window').width, height:Dimensions.get('window').height*1/10, backgroundColor:'#ababab', justifyContent: 'center', alignItems: 'center'}}
+           style={{width:Dimensions.get('window').width, height:Dimensions.get('window').height*15/100, backgroundColor:'#ababab', justifyContent: 'center', alignItems: 'center'}}
         >
              
             <Image 
              source={icon[this.props.iconNum]} 
-             style={{width:'12%', height:'67%'}}
+             style={{width:Dimensions.get('window').height*10/100, height:Dimensions.get('window').height*10/100, height:'67%'}}
             >
             </Image>
         </View>

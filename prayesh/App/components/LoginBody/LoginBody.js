@@ -19,7 +19,7 @@ import SignUpLoginTab from '../SignUpLoginTab/SignUpLoginTab'
 import { createStackNavigator,StackNavigator} from 'react-navigation';
 
 var icon=[require('../../img/scissor1.png'), require('../../img/scissor2.png'), require('../../img/scissor3.png')];
-export default class SignUpBody extends Component{
+export default class LoginBody extends Component{
     constructor(props) {
         super(props);
         this.state = {imgState: 1};
@@ -39,19 +39,19 @@ export default class SignUpBody extends Component{
                 style={{width: Dimensions.get('window').width, height:Dimensions.get('window').height*8/10}}
             >
                 <View style={styles.inputs}>
-                    <SignUpLoginTab pageNum={0}/>
+                    <SignUpLoginTab pageNum={1}/>
                     <TextInput onChangeText={this.props.textChange} placeholder="Phone number" style={styles.textInput} onChangeText={this.changeLogo} >
                     </TextInput>
-                    <TextInput onChangeText={this.props.textChange} placeholder="Family" style={styles.textInput} onChangeText={this.changeLogo} >
-                    </TextInput>    
+                    {/* <TextInput onChangeText={this.props.textChange} placeholder="Family" style={styles.textInput} onChangeText={this.changeLogo} >
+                    </TextInput>     */}
                     {/* <TextInput onChangeText={this.props.textChange} placeholder="Email" style={styles.textInput} onChangeText={this.changeLogo} >
                     </TextInput> */}
                     <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>Next</Text>
+                        <Text style={styles.buttonText}>Login</Text>
                     </TouchableOpacity>
-                    {/* <TouchableOpacity style={{justifyContent: 'center',alignItems: 'center', paddingTop:'2%'}}>
+                    <TouchableOpacity style={{justifyContent: 'center',alignItems: 'center', paddingTop:'2%'}}>
                         <Text>Forget Password?</Text>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity> 
                 </View>
                 <View style={{width: '100%', height: '65%', alignItems:'center', justifyContent:'center', backgroundColor:'#ababab'}}>
                     <ImageBackground

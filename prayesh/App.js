@@ -11,12 +11,17 @@ import {
   Text,
   View,
   ImageBackground,
-  Image
+  Image,
+  Navigator
 } from 'react-native';
 import Logo from './App/components/Logo/Logo'
 import SignUpBody from './App/components/SignUpBody/SignUpBody'
-import SignUpLogin from './App/components/SignUpLoginTab/SignUpLoginTab'
-import SignUpLoginTab from './App/components/SignUpLoginTab/SignUpLoginTab';
+import SignUpLoginTab from './App/components/SignUpLoginTab/SignUpLoginTab'
+import LoginBody from './App/components/LoginBody/LoginBody';
+import { createStackNavigator, StackNavigator } from 'react-navigation'
+import { YellowBox } from 'react-native'
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated']);
+console.disableYellowBox = true;
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -24,21 +29,58 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
-
-
-export default class App extends Component {
+/*
+const RootStack = createStackNavigator(
+  {
+    LoginPage: LoginBody,
+    
+    SignUpPage: SignUpBody,
+    
+    SignUpLoginTabPage: SignUpLoginTab,
+    
+  },
+  {
+    initialRouteName: 'SignUpPage',
+  }
+);
+*/
+const RootStack = StackNavigator({
+  Screen1 : {
+    screen: Screen1,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  Home : {
+    screen: HomeScreen,
+    navigationOptions: ({navigation}) => ({
+      title: 'Home',
+      headerStyle: styles.headerStyle,
+      headerTitle: <Text>Home</Text>,
+      headerLeft : null,
+      headerRight: null,
+    })
+  }, 
+}, {headerMode: 'screen'})
+export default class App extends React.Component {
+  
+  render() {
+    return <RootStack/>;
+  }
+}
+/*export default class App extends Component {
   
   
 
   render() {
          return (
         <View>
-          <SignUpBody/>
+          <LoginBody/>
         </View>
     );
   }
 }
-
+*/
 const styles = StyleSheet.create({
   container: {
     flex: 1,
